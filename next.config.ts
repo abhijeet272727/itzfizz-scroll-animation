@@ -1,12 +1,13 @@
+
 import type { NextConfig } from "next";
 
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+
 const nextConfig: NextConfig = {
-  /* config options here */
   experimental: {
     agentFeedback: true,
   },
-  cacheComponents: true,
-  partialPrefetching: true,
+  
   turbopack: {
     rules: {
       "*.css": {
@@ -15,6 +16,11 @@ const nextConfig: NextConfig = {
       },
     },
   },
+
+  ...(isGitHubPages && {
+    output: "export" as const,
+    basePath: "/itzfizz-scroll-animation",
+  }),
 };
 
 export default nextConfig;

@@ -29,3 +29,12 @@ img.airplane {
   object-fit: contain;
 }
 
+/* Keep stat cards hidden until the scroll animation reveals them */
+.stat-card {
+  opacity: 0;
+}
+
+/* Hide the reveal strip before scrolling starts */
+.reveal-strip {
+  clip-path: inset(0 100% 0 0);
+}
